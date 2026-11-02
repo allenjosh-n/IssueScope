@@ -55,4 +55,4 @@ curl localhost:8000/health
 
 ## Live link
 
-<Added in Week 2>
+https://issuescope.onrender.com  *(deploy to Render/Railway/Fly.io and update this URL)*
