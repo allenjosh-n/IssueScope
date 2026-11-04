@@ -10,7 +10,7 @@ Full data lives in `data/raw/` (not committed). A 2–3 file sample is in `data/
 
 ## Coverage
 
-The initial dataset targets **100+ prospectuses** and **30,000+ pages** sourced from SEBI's public-issues filing portal.  
+The initial dataset targets **100+ prospectuses** and **30,000+ pages** sourced from SEBI's public-issues filing portal.
 Document types: Draft Red Herring Prospectuses (DRHPs), Red Herring Prospectuses (RHPs), and addenda filed over approximately the last two years.
 
 ## Download tool

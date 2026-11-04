@@ -18,11 +18,6 @@ app = FastAPI(title="IssueScope", version="0.2.0")
 SettingsDep = Annotated[Settings, Depends(get_settings)]
 
 
-# ---------------------------------------------------------------------------
-# Health / Readiness
-# ---------------------------------------------------------------------------
-
-
 @app.get("/health")
 def health(settings: SettingsDep) -> dict:
     """Liveness: the process is up. Must be fast and must not call the LLM or the DB."""
@@ -43,11 +38,6 @@ def ready(settings: SettingsDep):
             status_code=503,
             content={"status": "not ready", "database": str(exc)[:200]},
         )
-
-
-# ---------------------------------------------------------------------------
-# Chat
-# ---------------------------------------------------------------------------
 
 
 @app.post("/chat", response_model=ChatResponse)
@@ -84,11 +74,6 @@ async def _sse_generator(body: ChatRequest, settings: Settings) -> AsyncIterator
         total_chunks += chunk
         yield f"data: {json.dumps({'chunk': chunk})}\n\n"
     yield "data: [DONE]\n\n"
-
-
-# ---------------------------------------------------------------------------
-# Usage
-# ---------------------------------------------------------------------------
 
 
 @app.get("/usage", response_model=UsageResponse)
