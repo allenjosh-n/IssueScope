@@ -21,6 +21,7 @@ SettingsDep = Annotated[Settings, Depends(get_settings)]
 # Health
 # ---------------------------------------------------------------------------
 
+
 @app.get("/health")
 def health(settings: SettingsDep) -> dict:
     """Liveness: the process is up. Must be fast and must not call the LLM or the DB."""
@@ -30,6 +31,7 @@ def health(settings: SettingsDep) -> dict:
 # ---------------------------------------------------------------------------
 # Chat
 # ---------------------------------------------------------------------------
+
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat_endpoint(body: ChatRequest, settings: SettingsDep):
@@ -71,6 +73,7 @@ async def _sse_generator(body: ChatRequest, settings: Settings) -> AsyncIterator
 # ---------------------------------------------------------------------------
 # Usage
 # ---------------------------------------------------------------------------
+
 
 @app.get("/usage", response_model=UsageResponse)
 def usage_endpoint() -> UsageResponse:

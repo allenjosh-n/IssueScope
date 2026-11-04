@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 # /chat
 # ---------------------------------------------------------------------------
 
+
 class Message(BaseModel):
     role: str = Field(..., examples=["user", "assistant", "system"])
     content: str
@@ -31,6 +32,7 @@ class ChatResponse(BaseModel):
 # ---------------------------------------------------------------------------
 # /usage
 # ---------------------------------------------------------------------------
+
 
 class UsageResponse(BaseModel):
     total_requests: int
